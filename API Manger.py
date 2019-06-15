@@ -6,9 +6,11 @@ HEADERS = {
 }
 LIMIT = 50
 
+# budget string is in format "1,2,3" for 1-3 dollar signs
 
-def getBusinesses(sortType: str):
-    file = open("./output.txt", "w", encoding='utf-8')
+
+def getAffordableBusinesses(sortType: str, budget: str) -> list:
+ #   file = open("./output.txt", "w", encoding='utf-8')
     location = "2001 E Martin Luther King Jr Blvd, Austin, TX 78702"
     # location = "Austin, TX"
     offset = 0
@@ -18,40 +20,37 @@ def getBusinesses(sortType: str):
     for i in range(5):
         if sortType == 'distance':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'distance'}
+                      'location': location, 'sort_by': 'distance', 'price': budget}
         elif sortType == 'review_count':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'review_count'}
+                      'location': location, 'sort_by': 'review_count', 'price': budget}
         elif sortType == 'rating':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'rating'}
-        elif sortType == 'bestMatch':
+                      'location': location, 'sort_by': 'rating', 'price': budget}
+        elif sortType == 'best_match':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'best_match'}
+                      'location': location, 'sort_by': 'best_match', 'price': budget}
 
         r = requests.get(url=URL, headers=HEADERS, params=PARAMS)
         offset += 50
-        print(str(r.status_code) + "\n")
+     #   print(str(r.status_code) + "\n")
         data = r.json()
-
         businesses = data.get('businesses')
+        return businesses
 
-        #  filter = [business for business in businesses if business.get(
-        #     'distance') < 2500]
-
-        # print(businesses)
-
-        for business in businesses:
-            stuff = business.get('name') + " " + str(business.get(sortType))
-
-            file.write(stuff + "\n")
-            print(stuff)
-
-        # print("\n")
-        # print(data.get('total'))
-
-    file.close
+ #   file.close
 
 
-sortingMethod = input("Enter a sorting method:")
-getBusinesses(sortingMethod)
+#sortingMethod = input("Enter a sorting method: ")
+budget = input("Enter a budget (format: 1,2,3 for $$$): ")
+distanceList = getAffordableBusinesses('distance', budget)
+reviewCountList = getAffordableBusinesses('review_count', budget)
+ratingList = getAffordableBusinesses('rating', budget)
+bestMatchList = getAffordableBusinesses('best_match', budget)
+
+
+# Distance: 5/10 -- > top 50 elements
+# Review Count: 6/10 -> top 40 elements
+# rating: 7/20 -> top 30 elements
+# Any duplicates between rating, review, and distance arrays? Make an array of them
+# If not, then make an array with just most important category. Within that array,
