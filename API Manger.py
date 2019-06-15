@@ -8,7 +8,7 @@ LIMIT = 50
 
 
 def getBusinesses(sortType):
-    file = open("WhereToGo/testfile.txt", "w", encoding='utf-8')
+    file = open("testfile.txt", "w", encoding='utf-8')
     location = "2001 E Martin Luther King Jr Blvd, Austin, TX 78702"
     # location = "Austin, TX"
     offset = 0
