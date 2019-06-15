@@ -2,13 +2,13 @@ import requests
 
 URL = "https://api.yelp.com/v3/businesses/search"
 HEADERS = {
-    'Authorization': 'Bearer TN738I_IAGsfYxDykZL49gJMVXIxf9OfFRiB93z5s6_JMEy34C1rHW7eKERYpbYfJvELwGU17VSpL2fVAWUGxWPGKB63qh7fID38nGiwLi1nafbw_Hs_bee29EsFXXYx'
+'Authorization': 'Bearer TN738I_IAGsfYxDykZL49gJMVXIxf9OfFRiB93z5s6_JMEy34C1rHW7eKERYpbYfJvELwGU17VSpL2fVAWUGxWPGKB63qh7fID38nGiwLi1nafbw_Hs_bee29EsFXXYx'
 }
 LIMIT = 50
 
 
 def getBusinesses(sortType):
-    file = open("testfile.txt", "w", encoding='utf-8')
+    file = open("WhereToGo/testfile1.txt", "w", encoding='utf-8')
     location = "2001 E Martin Luther King Jr Blvd, Austin, TX 78702"
     # location = "Austin, TX"
     offset = 0
