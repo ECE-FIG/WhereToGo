@@ -1,6 +1,7 @@
 import requests
 import time
 import random
+import webbrowser
 
 URL = "https://api.yelp.com/v3/businesses/search"
 HEADERS = {
@@ -87,24 +88,41 @@ ratingScores = []
 #     ratingScores.append(weightedScoreValue)
 
 # thatList= [a for a in distanceList if a in ratingList]
+stillValid = True
 for i in range(1, 11):
     maxDistance = int((10-distanceImportance)*100*i)
     maxRating = int((10-ratingImportance)*100*i)
-    bestDistanceList = distanceList[0:maxDistance]
-    bestRatingList = ratingList[0:maxRating]
-    bestBestMatchList = bestMatchList[0:50]
-    optionsList = [a for a in bestDistanceList if a in bestRatingList]
-    if optionsList:
+    try:
+        bestDistanceList = distanceList[0:maxDistance]
+        bestRatingList = ratingList[0:maxRating]
+        bestBestMatchList = bestMatchList[0:50]
+        optionsList = [a for a in bestDistanceList if a in bestRatingList]
+        if optionsList:
+            break
+    except:
+        print("Not enough options to choose from")
+        stillValid = False
         break
 
-print("Looking through potential restaurant ideas..." + "\n")
-for a in optionsList:
-    print(a.get('name'))
+if stillValid:
+    print("Looking through potential restaurant ideas..." + "\n")
+    for a in optionsList:
+        print(a.get('name'))
 
-maxIndices = len(optionsList)
-if maxIndices != 0:
-    randIndex = random.randint(0, maxIndices-1)
-    print("Final Restaurant Decision: " + optionsList[randIndex].get('name'))
+    maxIndices = len(optionsList)
+    if maxIndices != 0:
+        randIndex = random.randint(0, maxIndices-1)
+        restaurantChoice = optionsList[randIndex]
+
+        while (restaurantChoice.get('is_closed')):
+            randIndex = random.randint(0, maxIndices-1)
+            restaurantChoice = optionsList[randIndex]
+        imageURL = optionsList[randIndex].get('image_url')
+        availTransactions = optionsList[randIndex].get('transactions')
+        print("Final Restaurant Decision: " + restaurantChoice.get('name'))
+        print(availTransactions)
+        print(imageURL)
+        webbrowser.open(imageURL)
 
 
 # Distance: 5/10 -- > top 50 elements
