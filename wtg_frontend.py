@@ -16,16 +16,17 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-@app.route("/my_event")
+@app.route("/processed")
 def myHandler():
     return render_template('index.html')
 
 
-@app.route('/my_event', methods=['POST'])
+@app.route('/processed', methods=['POST'])
 def inputHandler():
     budget = request.form['budget']
     term = request.form['category']
     openDuration = int(request.form['elapsed time'])
+    print(openDuration)
     distanceImportance = int(request.form['distance score'])
     ratingImportance = int(request.form['rating score'])
 
