@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>WTG Flask</title>
+</head>
+
+<body>
+  <!-- budget = input("Enter a budget (format: 1,2,3 for $$$): ")
+  term = input("Enter a category: ")
+  openDuration = int(input("Hours until you plan to go: "))
+  distanceImportance = int(input("Rate the importance of distance from 1-10: "))
+  ratingImportance = int(input("Rate the importance of ratings from 1-10: ")) -->
+  <!-- action="{{ url_for('inputHandler') }}" -->
+  <form action="{{url_for('inputHandler')}}" method="POST">
+    Enter a budget (format: 1,2,3 for $$$):
+    <input type="text" name="budget" value="1"></input><br><br>
+         Enter a category:
+    <input type="text" name="category" value="food"></input><br><br>
+    Hours until you plan to go:
+    <input type="text" name="elapsed time" value="0"></input><br><br>
+    Rate the importance of distance from 1-10:
+    <input type="text" name="distance score" value="5"></input><br><br>
+    Rate the importance of ratings from 1-10:
+    <input type="text" name="rating score" value="5"></input><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+  <hr>
+  <p>Best Restaurant: {{ value }}</p>
+</body>
+
+</html>
