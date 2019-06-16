@@ -117,12 +117,12 @@ if stillValid:
         while (restaurantChoice.get('is_closed')):
             randIndex = random.randint(0, maxIndices-1)
             restaurantChoice = optionsList[randIndex]
+        rating = optionsList[randIndex].get('rating')
         imageURL = optionsList[randIndex].get('image_url')
-        availTransactions = optionsList[randIndex].get('transactions')
-        print("Final Restaurant Decision: " + restaurantChoice.get('name'))
-        print(availTransactions)
-        print(imageURL)
-        webbrowser.open(imageURL)
+        print("\nFinal Restaurant Decision: " + restaurantChoice.get('name'))
+        print("Rating (rounded): " + str(rating) + " / 5.0")
+        print("Image URL: " + imageURL)
+        #webbrowser.open(imageURL)
 
 
 # Distance: 5/10 -- > top 50 elements
