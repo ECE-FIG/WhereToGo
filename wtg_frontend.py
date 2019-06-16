@@ -15,17 +15,7 @@ app = Flask(__name__)
 def myHandler(value=None):
     myString = ""
 
-    # budget = userInput.getvalue('budget')
-    # term = userInput.getvalue('term')
-    # openDuration = int(userInput.getvalue('elapsed time'))
-    # distanceImportance = int(userInput.getvalue('distance'))
-    # ratingImportance = int(userInput.getvalue('rating'))
-
-    # myString = runFrontEndExample(
-    #     budget, term, openDuration, distanceImportance, ratingImportance)
-    # print(myString)
     return render_template('index.html', value=myString)
-    # return render_template('index.html', value="HI")
 
 
 @app.route('/', methods=['POST'])
@@ -41,8 +31,4 @@ def inputHandler(value=None):
 
     myString = runFrontEndExample(
         budget, term, openDuration, distanceImportance, ratingImportance)
-    # print(myString)
     return render_template('index.html', value=myString)
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
