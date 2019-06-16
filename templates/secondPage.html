@@ -23,9 +23,29 @@
   <hr>
   <p>Best Restaurant: {{ restaurantName }}</p>
   <p>Rating (rounded): {{ rating }}</p>
-  <p>Yelp URL: {{ yelpURL }}</p>
-  <p>Fakespot URL: {{ fakespotURL }}</p>
-  <p>Image URL: {{ imageURL }}</p>
+  <a href="{{ fakespotURL }}">
+    <p>FakeSpot Rating</p>
+  </a>
+  <a href="{{ yelpURL }}">
+    <p>Click the image to access the Yelp site</p>
+    <img src="{{ imageURL }}" alt="{{ restaurantName }}" style="max-height: 256px">
+  </a>
+  <hr>
+  <p>Made by: <b>Nicholas Chu</b> and <b>Nikhil Kolluri</b></p>
+  <button onClick="showSuggestions()">See Other Suggestions</button>
+  <br><br>
+  <p id="suggestions" style="display: none">{{ nameList | safe }}</p>
+
 </body>
+
+<script>
+  function showSuggestions() {
+    let el = document.getElementById("suggestions")
+
+    if (el.style.display == "none") {
+      el.style.display = "block"
+    }
+  }
+</script>
 
 </html>

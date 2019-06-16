@@ -16,7 +16,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-@app.route("/processed")
+@app.route("/")
 def myHandler():
     return render_template('index.html')
 
@@ -26,15 +26,19 @@ def inputHandler():
     budget = request.form['budget']
     term = request.form['category']
     openDuration = int(request.form['elapsed time'])
-    print(openDuration)
     distanceImportance = int(request.form['distance score'])
     ratingImportance = int(request.form['rating score'])
+    # initialize parameters
+    restaurantName = None
+    rating = None
+    yelpURL = None
+    fakespotURL = None
+    imageURL = None
+    nameList = ""
 
     optionsList = runFrontEndExample(
         budget, term, openDuration, distanceImportance, ratingImportance)
     maxIndices = len(optionsList)
-    for a in optionsList:
-        print(a.get('name'))
 
     if maxIndices != 0:
         randIndex = random.randint(0, maxIndices-1)
@@ -49,6 +53,10 @@ def inputHandler():
         fakespotURL = "https://www.fakespot.com/analyze?url=" + yelpURL
         imageURL = optionsList[randIndex].get('image_url')
 
+        for item in optionsList:
+            nameList += item.get("name") + "<br><br>"
+        print("name list: " + nameList)
+
         print("\nFinal Restaurant Decision: " +
               restaurantChoice.get('name'))
         print("Rating (rounded): " + str(rating) + " / 5.0")
@@ -57,4 +65,4 @@ def inputHandler():
         print("Image URL: " + imageURL)
         # webbrowser.open(imageURL)
         # Eventually, implement reviews
-    return render_template('secondPage.html', restaurantName=restaurantName, rating=rating, yelpURL=yelpURL, fakespotURL=fakespotURL, imageURL=imageURL)
+    return render_template('secondPage.html', restaurantName=restaurantName, rating=rating, yelpURL=yelpURL, fakespotURL=fakespotURL, imageURL=imageURL, nameList=nameList)

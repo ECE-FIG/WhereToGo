@@ -12,16 +12,17 @@ LIMIT = 50
 
 def getAffordableBusinesses(sortType: str, budget: str, term: str, openDuration: int) -> list:
  #   file = open("./output.txt", "w", encoding='utf-8')
+    businesses = []
     location = "2001 E Martin Luther King Jr Blvd, Austin, TX 78702"
     # location = "Austin, TX"
     offset = 0
 
     # add a couple hours to allow eating?
-    openAt = int(openDuration * 3600 + time.time())
+    openAt = int((openDuration * 3600) + time.time())
 
     # to loop through 1000 businesses
     # should be range(20) for entire 1000 businesses
-    for i in range(20):
+    for i in range(3):
         if sortType == 'distance':
             PARAMS = {'limit': LIMIT, 'offset': offset,
                       'location': location, 'sort_by': 'distance', 'price': budget, 'term': term, 'open_at': openAt}
@@ -37,10 +38,11 @@ def getAffordableBusinesses(sortType: str, budget: str, term: str, openDuration:
 
         r = requests.get(url=URL, headers=HEADERS, params=PARAMS)
         offset += 50
-     #   print(str(r.status_code) + "\n")
         data = r.json()
-        businesses = data.get('businesses')
-        return businesses
+
+        print(data)
+        businesses.extend(data.get('businesses'))
+    return businesses
 
  #   file.close
 
@@ -93,32 +95,6 @@ def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImport
         print(optionsList)
         return optionsList
 
-        # for a in optionsList:
-        #     print(a.get('name'))
-
-        # if maxIndices != 0:
-        #     randIndex = random.randint(0, maxIndices-1)
-        #     restaurantChoice = optionsList[randIndex]
-
-        #     while (restaurantChoice.get('is_closed')):
-        #         randIndex = random.randint(0, maxIndices-1)
-        #         restaurantChoice = optionsList[randIndex]
-
-        #     rating = optionsList[randIndex].get('rating')
-        #     yelpURL = optionsList[randIndex].get('url')
-        #     imageURL = optionsList[randIndex].get('image_url')
-
-        #     print("\nFinal Restaurant Decision: " +
-        #           restaurantChoice.get('name'))
-        #     print("Rating (rounded): " + str(rating) + " / 5.0")
-        #     print("Yelp URL: " + yelpURL)
-        #     print("FakeSpot URL (for fake yelp URL detection): " +
-        #           "https://www.fakespot.com/analyze?url=" + yelpURL)
-        #     print("Image URL: " + imageURL)
-        #     # webbrowser.open(imageURL)
-        #     # Eventually, implement reviews
-        #     return restaurantChoice
-
 
 # print(runFrontEndExample())
 
@@ -127,3 +103,6 @@ def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImport
 # rating: 7/20 -> top 30 elements
 # Any duplicates between rating, review, and distance arrays? Make an array of them
 # If not, then make an array with just most important term. Within that array,
+
+# no restaurants returned after Sunday
+# getAffordableBusinesses('distance', "1, 2, 3, 4", "food", 12)
