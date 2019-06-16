@@ -50,16 +50,17 @@ term = input("Enter a category: ")
 openDuration = int(input("Hours until you plan to go: "))
 distanceImportance = int(input("Rate the importance of distance from 1-10: "))
 ratingImportance = int(input("Rate the importance of ratings from 1-10: "))
-if distanceImportance==10:
-    distanceImportance=9.5
-if ratingImportance==10:
-    ratingImportance=9.5
+if distanceImportance == 10:
+    distanceImportance = 9.5
+if ratingImportance == 10:
+    ratingImportance = 9.5
 distanceList = getAffordableBusinesses(
     'distance', budget, term, openDuration)
 # reviewCountList = getAffordableBusinesses('review_count', budget, term, openDuration)
 ratingList = getAffordableBusinesses(
     'rating', budget, term, openDuration)
-bestMatchList = getAffordableBusinesses('best_match', budget, term, openDuration)
+bestMatchList = getAffordableBusinesses(
+    'best_match', budget, term, openDuration)
 distanceScores = []
 ratingScores = []
 
@@ -86,22 +87,23 @@ ratingScores = []
 #     ratingScores.append(weightedScoreValue)
 
 # thatList= [a for a in distanceList if a in ratingList]
-for i in range(1,11):
+for i in range(1, 11):
     maxDistance = int((10-distanceImportance)*100*i)
     maxRating = int((10-ratingImportance)*100*i)
     bestDistanceList = distanceList[0:maxDistance]
     bestRatingList = ratingList[0:maxRating]
     bestBestMatchList = bestMatchList[0:50]
     optionsList = [a for a in bestDistanceList if a in bestRatingList]
-    if optionsList: break
+    if optionsList:
+        break
 
 print("Looking through potential restaurant ideas..." + "\n")
 for a in optionsList:
-     print(a.get('name'))
+    print(a.get('name'))
 
 maxIndices = len(optionsList)
-if maxIndices!=0: 
-    randIndex = random.randint(0,maxIndices-1)
+if maxIndices != 0:
+    randIndex = random.randint(0, maxIndices-1)
     print("Final Restaurant Decision: " + optionsList[randIndex].get('name'))
 
 
