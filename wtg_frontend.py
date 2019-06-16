@@ -16,12 +16,12 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-@app.route("/")
+@app.route("/my_event")
 def myHandler():
     return render_template('index.html')
 
 
-@app.route('/', methods=['POST'])
+@app.route('/my_event', methods=['POST'])
 def inputHandler():
     budget = request.form['budget']
     term = request.form['category']
