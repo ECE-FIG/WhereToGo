@@ -11,7 +11,7 @@ LIMIT = 50
 # budget string is in format "1,2,3" for 1-3 dollar signs
 
 
-def getAffordableBusinesses(sortType: str, budget: str, categories: str, openDuration: int) -> list:
+def getAffordableBusinesses(sortType: str, budget: str, term: str, openDuration: int) -> list:
  #   file = open("./output.txt", "w", encoding='utf-8')
     location = "2001 E Martin Luther King Jr Blvd, Austin, TX 78702"
     # location = "Austin, TX"
@@ -23,16 +23,16 @@ def getAffordableBusinesses(sortType: str, budget: str, categories: str, openDur
     for i in range(20):
         if sortType == 'distance':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'distance', 'price': budget, 'categories': categories, 'open_at': openAt}
+                      'location': location, 'sort_by': 'distance', 'price': budget, 'term': term, 'open_at': openAt}
         elif sortType == 'review_count':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'review_count', 'price': budget, 'categories': categories, 'open_at': openAt}
+                      'location': location, 'sort_by': 'review_count', 'price': budget, 'term': term, 'open_at': openAt}
         elif sortType == 'rating':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'rating', 'price': budget, 'categories': categories, 'open_at': openAt}
+                      'location': location, 'sort_by': 'rating', 'price': budget, 'term': term, 'open_at': openAt}
         elif sortType == 'best_match':
             PARAMS = {'limit': LIMIT, 'offset': offset,
-                      'location': location, 'sort_by': 'best_match', 'price': budget, 'categories': categories, 'open_at': openAt}
+                      'location': location, 'sort_by': 'best_match', 'price': budget, 'term': term, 'open_at': openAt}
 
         r = requests.get(url=URL, headers=HEADERS, params=PARAMS)
         offset += 50
@@ -46,7 +46,7 @@ def getAffordableBusinesses(sortType: str, budget: str, categories: str, openDur
 
 #sortingMethod = input("Enter a sorting method: ")
 budget = input("Enter a budget (format: 1,2,3 for $$$): ")
-categories = input("Enter a category: ")
+term = input("Enter a category: ")
 openDuration = int(input("Hours until you plan to go: "))
 distanceImportance = int(input("Rate the importance of distance from 1-10: "))
 ratingImportance = int(input("Rate the importance of ratings from 1-10: "))
@@ -55,11 +55,11 @@ if distanceImportance==10:
 if ratingImportance==10:
     ratingImportance=9.5
 distanceList = getAffordableBusinesses(
-    'distance', budget, categories, openDuration)
-# reviewCountList = getAffordableBusinesses('review_count', budget, categories, openDuration)
+    'distance', budget, term, openDuration)
+# reviewCountList = getAffordableBusinesses('review_count', budget, term, openDuration)
 ratingList = getAffordableBusinesses(
-    'rating', budget, categories, openDuration)
-bestMatchList = getAffordableBusinesses('best_match', budget, categories, openDuration)
+    'rating', budget, term, openDuration)
+bestMatchList = getAffordableBusinesses('best_match', budget, term, openDuration)
 distanceScores = []
 ratingScores = []
 
@@ -109,4 +109,4 @@ if maxIndices!=0:
 # Review Count: 6/10 -> top 40 elements
 # rating: 7/20 -> top 30 elements
 # Any duplicates between rating, review, and distance arrays? Make an array of them
-# If not, then make an array with just most important categories. Within that array,
+# If not, then make an array with just most important term. Within that array,
