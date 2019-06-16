@@ -45,7 +45,7 @@ def getAffordableBusinesses(sortType: str, budget: str, term: str, openDuration:
  #   file.close
 
 
-def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImportance: int, ratingImportance: int) -> str:
+def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImportance: int, ratingImportance: int) -> list:
     # budget = input("Enter a budget (format: 1,2,3 for $$$): ")
     # term = input("Enter a category: ")
     # openDuration = int(input("Hours until you plan to go: "))
@@ -82,7 +82,7 @@ def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImport
             bestRatingList = ratingList[0:maxRating]
             # bestBestMatchList = bestMatchList[0:50]
             optionsList = [a for a in bestDistanceList if a in bestRatingList]
-            maxIndices = len(optionsList)
+            # maxIndices = len(optionsList)
         except:
             print("Not enough options to choose from")
             stillValid = False
@@ -91,32 +91,33 @@ def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImport
     if stillValid:
         print("Looking through potential restaurant ideas..." + "\n")
         print(optionsList)
+        return optionsList
 
-        for a in optionsList:
-            print(a.get('name'))
+        # for a in optionsList:
+        #     print(a.get('name'))
 
-        if maxIndices != 0:
-            randIndex = random.randint(0, maxIndices-1)
-            restaurantChoice = optionsList[randIndex]
+        # if maxIndices != 0:
+        #     randIndex = random.randint(0, maxIndices-1)
+        #     restaurantChoice = optionsList[randIndex]
 
-            while (restaurantChoice.get('is_closed')):
-                randIndex = random.randint(0, maxIndices-1)
-                restaurantChoice = optionsList[randIndex]
+        #     while (restaurantChoice.get('is_closed')):
+        #         randIndex = random.randint(0, maxIndices-1)
+        #         restaurantChoice = optionsList[randIndex]
 
-            rating = optionsList[randIndex].get('rating')
-            yelpURL = optionsList[randIndex].get('url')
-            imageURL = optionsList[randIndex].get('image_url')
+        #     rating = optionsList[randIndex].get('rating')
+        #     yelpURL = optionsList[randIndex].get('url')
+        #     imageURL = optionsList[randIndex].get('image_url')
 
-            print("\nFinal Restaurant Decision: " +
-                  restaurantChoice.get('name'))
-            print("Rating (rounded): " + str(rating) + " / 5.0")
-            print("Yelp URL: " + yelpURL)
-            print("FakeSpot URL (for fake yelp URL detection): " +
-                  "https://www.fakespot.com/analyze?url=" + yelpURL)
-            print("Image URL: " + imageURL)
-            # webbrowser.open(imageURL)
-            # Eventually, implement reviews
-            return restaurantChoice.get('name')
+        #     print("\nFinal Restaurant Decision: " +
+        #           restaurantChoice.get('name'))
+        #     print("Rating (rounded): " + str(rating) + " / 5.0")
+        #     print("Yelp URL: " + yelpURL)
+        #     print("FakeSpot URL (for fake yelp URL detection): " +
+        #           "https://www.fakespot.com/analyze?url=" + yelpURL)
+        #     print("Image URL: " + imageURL)
+        #     # webbrowser.open(imageURL)
+        #     # Eventually, implement reviews
+        #     return restaurantChoice
 
 
 # print(runFrontEndExample())
