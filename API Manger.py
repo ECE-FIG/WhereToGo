@@ -118,11 +118,14 @@ if stillValid:
             randIndex = random.randint(0, maxIndices-1)
             restaurantChoice = optionsList[randIndex]
         rating = optionsList[randIndex].get('rating')
+        yelpURL = optionsList[randIndex].get('url')
         imageURL = optionsList[randIndex].get('image_url')
         print("\nFinal Restaurant Decision: " + restaurantChoice.get('name'))
         print("Rating (rounded): " + str(rating) + " / 5.0")
+        print("Yelp URL: " + yelpURL)
         print("Image URL: " + imageURL)
         #webbrowser.open(imageURL)
+        # Eventually, implement reviews
 
 
 # Distance: 5/10 -- > top 50 elements
