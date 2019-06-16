@@ -123,6 +123,7 @@ if stillValid:
         print("\nFinal Restaurant Decision: " + restaurantChoice.get('name'))
         print("Rating (rounded): " + str(rating) + " / 5.0")
         print("Yelp URL: " + yelpURL)
+        print("FakeSpot URL (for fake yelp URL detection): " + "https://www.fakespot.com/analyze?url=" + yelpURL)
         print("Image URL: " + imageURL)
         #webbrowser.open(imageURL)
         # Eventually, implement reviews
