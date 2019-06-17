@@ -1,3 +1,49 @@
+<style>
+
+body{
+  background-image: url(https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  
+}
+p[type=title]{
+text-align: center;
+align-content: center;
+color: white;
+font-family: "Source Sans Pro", Helvetica, sans-serif;
+font-size: 2.25rem;
+font-weight: 900;
+text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+}
+
+input[type=text] {
+  width: 25%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  display:block;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  align-content: center;
+  text-align:center;
+  -webkit-transition: width 0.6s ease-in-out;
+  transition: width 0.6s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 45%;
+  background-color: #ffffcc;
+}
+input[type=text] label{
+  font: 200 15px;
+}
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,18 +51,19 @@
   <title>WTG Flask</title>
 </head>
 
-<body>
+<body style="background-color:#ffccff
+">
   <form action="{{url_for('inputHandler')}}" method="POST">
-    Enter a budget (format: 1,2,3 for $$$):
-    <input type="text" name="budget"></input><br><br>
-    Enter a category:
-    <input type="text" name="category"></input><br><br>
-    Hours until you plan to go:
-    <input type="text" name="elapsed time"></input><br><br>
-    Rate the importance of distance from 1-10:
-    <input type="text" name="distance score"></input><br><br>
-    Rate the importance of ratings from 1-10:
-    <input type="text" name="rating score"></input><br><br>
+    <p type="title">Enter a budget (format: 1,2,3 for $$$):</p>
+    <input type="text" name="budget"></input>
+    <p type="title">Enter a category:</p>
+    <input type="text" name="category"></input>
+    <p type="title">Hours until you plan to go:</p>
+    <input type="text" name="elapsed time"></input>
+    <p type="title">Rate the importance of distance from 1-10:</p>
+    <input type="text" name="distance score"></input>
+    <p type="title">Rate the importance of ratings from 1-10:</p>
+    <input type="text" name="rating score"></input>
 
     <input type="submit" value="Submit">
   </form>
