@@ -1,7 +1,7 @@
 <style>
 
 body{
-  background-image: url(https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-image: url(https://images.pexels.com/photos/6747/food-dessert-sweet-color.jpg);
   
 }
 p[type=title]{
@@ -65,23 +65,23 @@ input[type=text] label{
     <p type="title">Rate the importance of ratings from 1-10:</p>
     <input type="text" name="rating score"></input>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" style="text-align:center; align-content: center; margin: 0 auto; display:block">
   </form>
   <hr>
-  <p>Best Restaurant: {{ restaurantName }}</p>
-  <p>Rating (rounded): {{ rating }}</p>
+  <p type="title">Best Restaurant: {{ restaurantName }}</p>
+  <p type="title">Rating (rounded): {{ rating }}</p>
   <a href="{{ fakespotURL }}">
-    <p>FakeSpot Rating</p>
-  </a>
+    <p type="title">FakeSpot Rating URL</p>
+  </a> 
   <a href="{{ yelpURL }}">
-    <p>Click the image to access the Yelp site</p>
-    <img src="{{ imageURL }}" alt="{{ restaurantName }}" style="max-height: 256px">
+    <p type="title">Click the image to access the Yelp site</p>
+    <img src="{{ imageURL }}" alt="{{ restaurantName }}" style="max-height: 256px; align-content: center; margin: 0 auto; display:block">
   </a>
   <hr>
-  <p>Made by: <b>Nicholas Chu</b> and <b>Nikhil Kolluri</b></p>
-  <button onClick="showSuggestions()">See Other Suggestions</button>
+  <p type="title">Made by: <b>Nicholas Chu</b> and <b>Nikhil Kolluri</b></p>
+  <button onClick="showSuggestions()" style="text-align:center; align-content: center; margin: 0 auto; display:block">See Other Suggestions</button>
   <br><br>
-  <p id="suggestions" style="display: none">{{ nameList | safe }}</p>
+  <p id="suggestions" style="display: none; color: white; text-align:center; align-content: center; margin: 0 auto; display:block">{{ nameList | safe }}</p>
 
 </body>
 
