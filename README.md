@@ -11,3 +11,5 @@ After the build finishes, run `docker run -d -p 5000:5000 wtg` to start the flas
 Now, run `docker-machine ip` to get the IP address of where the server is hosted. Visit this address in a web browser and append `:5000` to it to access the site (e.g. 192.168.99.100:5000).
 
 Congratulations, you have successfully hosted and ran the web app through Docker!
+
+If you want to stop the server, use `docker ps` to get a list of running containers. Then, run `docker stop [container id]` to stop the container.
