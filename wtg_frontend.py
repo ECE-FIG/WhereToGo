@@ -5,23 +5,13 @@ from yelp_api_handler import getAffordableBusinesses, runFrontEndExample
 
 app = Flask(__name__)
 
-# budget = "1,2"
-# term = "asian"
-# openDuration = 4
-# distanceImportance = 5
-# ratingImportance = 5
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
 
 @app.route("/")
 def myHandler():
     return render_template('index.html')
 
 
-@app.route('/processed', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def inputHandler():
     budget = request.form['budget']
     term = request.form['category']
@@ -47,6 +37,7 @@ def inputHandler():
         while (restaurantChoice.get('is_closed')):
             randIndex = random.randint(0, maxIndices-1)
             restaurantChoice = optionsList[randIndex]
+
         restaurantName = optionsList[randIndex].get('name')
         rating = optionsList[randIndex].get('rating')
         yelpURL = optionsList[randIndex].get('url')
@@ -55,8 +46,8 @@ def inputHandler():
 
         for item in optionsList:
             nameList += item.get("name") + "<br><br>"
-        print("name list: " + nameList)
 
+        print("name list: " + nameList)
         print("\nFinal Restaurant Decision: " +
               restaurantChoice.get('name'))
         print("Rating (rounded): " + str(rating) + " / 5.0")
@@ -65,4 +56,8 @@ def inputHandler():
         print("Image URL: " + imageURL)
         # webbrowser.open(imageURL)
         # Eventually, implement reviews
-    return render_template('secondPage.html', restaurantName=restaurantName, rating=rating, yelpURL=yelpURL, fakespotURL=fakespotURL, imageURL=imageURL, nameList=nameList)
+    return render_template('results.html', restaurantName=restaurantName, rating=rating, yelpURL=yelpURL, fakespotURL=fakespotURL, imageURL=imageURL, nameList=nameList)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -2,30 +2,29 @@
 <html lang="en">
 
 <head>
-  <title>WTG Flask</title>
+  <title>Where to Go</title>
 </head>
 
 <body>
   <form action="{{url_for('inputHandler')}}" method="POST">
     Enter a budget (format: 1,2,3 for $$$):
-    <input type="text" name="budget"></input><br><br>
+    <input type="text" name="budget"></input>
+    <br><br>
     Enter a category:
-    <input type="text" name="category"></input><br><br>
+    <input type="text" name="category"></input>
+    <br><br>
     Hours until you plan to go:
-    <input type="text" name="elapsed time"></input><br><br>
+    <input type="text" name="elapsed time"></input>
+    <br><br>
     Rate the importance of distance from 1-10:
-    <input type="text" name="distance score"></input><br><br>
+    <input type="text" name="distance score"></input>
+    <br><br>
     Rate the importance of ratings from 1-10:
-    <input type="text" name="rating score"></input><br><br>
-
+    <input type="text" name="rating score"></input>
+    <br><br>
     <input type="submit" value="Submit">
   </form>
   <hr>
-  <!-- <p>Best Restaurant: {{ restaurantName }}</p>
-  <p>Rating (rounded): {{ rating }}</p>
-  <p>Yelp URL: {{ yelpURL }}</p>
-  <p>Fakespot URL: {{ fakespotURL }}</p>
-  <p>Image URL: {{ imageURL }}</p>-->
 </body>
 
 </html>
