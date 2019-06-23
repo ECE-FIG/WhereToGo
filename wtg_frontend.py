@@ -13,11 +13,11 @@ def myHandler():
 
 @app.route('/results', methods=['POST'])
 def inputHandler():
-    budget = request.form['budget']
+    budget = request.form['budget'] or '1,2,3,4'
     term = request.form['category']
-    openDuration = int(request.form['elapsed time'])
-    distanceImportance = int(request.form['distance score'])
-    ratingImportance = int(request.form['rating score'])
+    openDuration = int(request.form['elapsed time'] or 0)
+    distanceImportance = int(request.form['distance score'] or 0)
+    ratingImportance = int(request.form['rating score'] or 0)
     # initialize parameters
     restaurantName = None
     rating = None
