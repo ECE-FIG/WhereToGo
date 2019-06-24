@@ -36,7 +36,7 @@
       align-content: right;
       display: block;
       position: relative;
-      margin-bottom: 12px;
+     
       cursor: pointer;
       font-size: 17px;
       -webkit-user-select: none;
@@ -117,9 +117,9 @@
     }
   
     .checkcontainer {
-      display: block;
+      display: inli;
       position: relative;
-      margin-bottom: 12px;
+      
       cursor: pointer;
       font-size: 17px;
       -webkit-user-select: none; /* Chrome, Opera, Safari */
@@ -183,19 +183,19 @@
   <body>
     <form action="{{url_for('inputHandler')}}" method="POST" style="text-align:center; align-content: right; margin: 0 auto; display:block">
       <p type="title">Select a budget:</p>
-        <label class="checkcontainer" style="align-content: right; margin: 0 auto; display:block"><p type="title">$</p>
+        <label class="checkcontainer" style="align-content: right; margin: 0 auto; display:block"><p type="">$</p>
           <input name="onedollar" type="checkbox" checked="1" unchecked="None" value="1" style="align-content: right; margin: 0 auto; display:block">
           <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
         </label>
-        <label class="checkcontainer"><p type="title">$$</p>
+        <label class="checkcontainer"><p type="">$$</p>
           <input name="twodollar" type="checkbox" checked="2" unchecked="None" value="2">
           <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
         </label>
-        <label  class="checkcontainer"><p type="title">$$$</p>
+        <label  class="checkcontainer"><p type="">$$$</p>
           <input name="threedollar" type="checkbox" checked="3" unchecked="None" value="3">
           <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
         </label>
-        <label class="checkcontainer"><p type="title">$$$$</p>
+        <label class="checkcontainer"><p type="">$$$$</p>
           <input name="fourdollar" type="checkbox" checked="4" unchecked="None" value="4"> 
           <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
         </label>
