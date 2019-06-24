@@ -21,12 +21,16 @@ def inputHandler():
     bOne = request.form.get('onedollar')
     bTwo = request.form.get('twodollar')
     bThree = request.form.get('threedollar')
-    bFour = request.form.get('fourdollar')    
+    bFour = request.form.get('fourdollar')
     preBudgetList = []
-    if type(bOne)!=NoneType: preBudgetList.append(bOne)
-    if type(bTwo)!=NoneType: preBudgetList.append(bTwo)
-    if type(bThree)!=NoneType: preBudgetList.append(bThree)
-    if type(bFour)!=NoneType: preBudgetList.append(bFour)
+    if type(bOne) != NoneType:
+        preBudgetList.append(bOne)
+    if type(bTwo) != NoneType:
+        preBudgetList.append(bTwo)
+    if type(bThree) != NoneType:
+        preBudgetList.append(bThree)
+    if type(bFour) != NoneType:
+        preBudgetList.append(bFour)
     budget = (",").join(preBudgetList)
     print(budget)
     #budget = request.form['budget'] or '1,2,3,4'
@@ -63,7 +67,7 @@ def inputHandler():
         for item in optionsList:
             nameList += item.get("name") + "<br><br>"
 
-        print("name list: " + nameList)
+        # print("name list: " + nameList)
         print("\nFinal Restaurant Decision: " +
               restaurantChoice.get('name'))
         print("Rating (rounded): " + str(rating) + " / 5.0")
