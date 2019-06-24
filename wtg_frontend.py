@@ -13,7 +13,23 @@ def myHandler():
 
 @app.route('/results', methods=['POST'])
 def inputHandler():
-    budget = request.form['budget'] or '1,2,3,4'
+    NoneType = type(None)
+    print(request.form.get('onedollar'))
+    print(request.form.get('twodollar'))
+    print(request.form.get('threedollar'))
+    print(request.form.get('fourdollar'))
+    bOne = request.form.get('onedollar')
+    bTwo = request.form.get('twodollar')
+    bThree = request.form.get('threedollar')
+    bFour = request.form.get('fourdollar')    
+    preBudgetList = []
+    if type(bOne)!=NoneType: preBudgetList.append(bOne)
+    if type(bTwo)!=NoneType: preBudgetList.append(bTwo)
+    if type(bThree)!=NoneType: preBudgetList.append(bThree)
+    if type(bFour)!=NoneType: preBudgetList.append(bFour)
+    budget = (",").join(preBudgetList)
+    print(budget)
+    #budget = request.form['budget'] or '1,2,3,4'
     term = request.form['category']
     openDuration = int(request.form['elapsed time'] or 0)
     distanceImportance = int(request.form['distance score'] or 0)

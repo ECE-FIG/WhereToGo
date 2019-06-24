@@ -1,79 +1,224 @@
 <style>
+ 
 
-  body{
-    background-image: url(https://images.pexels.com/photos/6747/food-dessert-sweet-color.jpg);
-    
-  }
-  p[type=title]{
-  text-align: center;
-  align-content: center;
-  color: white;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 2.25rem;
-  font-weight: 900;
-  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+    .container input:checked ~ .checkmark:after {
+    display: block;
   }
   
-  input[type=text] {
-    width: 25%;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    display:block;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    align-content: center;
-    text-align:center;
-    -webkit-transition: width 0.6s ease-in-out;
-    transition: width 0.6s ease-in-out;
+  
+    .checkcontainer .checkmark:after {
+      left: 10px;
+      top: 6px;
+      width: 7px;
+      height: 12px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
   }
   
-  input[type=text]:focus {
-    width: 45%;
-    background-color: #ffffcc;
+    .checkcontainer input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+  
+    .checkcontainer:hover input~.checkmark {
+      background-color: #ccc;
+    }
+  
+    .checkcontainer input:checked~.checkmark {
+      background-color: #2196F3;
+    }
+  
+    .checkcontainer {
+      align-content: right;
+      display: block;
+      position: relative;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 17px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  
+    .checkcontainer .checkmark:after {
+      left: 10px;
+      top: 6px;
+      width: 7px;
+      height: 12px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+  
+  
+    .budgetInput {
+      width: 33.33333%;
+    }
+  
+    div {
+      display: block;
+    }
+  
+    body {
+      background-image: url(https://images.pexels.com/photos/6747/food-dessert-sweet-color.jpg);
+  
+    }
+  
+    p[type=title] {
+      text-align: center;
+      align-content: center;
+      color: white;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      font-size: 2.25rem;
+      font-weight: 900;
+      text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+    }
+  
+    input[type=text] {
+      width: 25%;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      display: block;
+      box-shadow: inset 0 1px 3px #ddd;
+      border-radius: 4px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      align-content: center;
+      text-align: center;
+      -webkit-transition: width 0.6s ease-in-out;
+      transition: width 0.6s ease-in-out;
+    }
+  
+    input[type=text]:focus {
+      width: 45%;
+      background-color: #ffffcc;
+    }
+  
+    input[type=text] label {
+      font: 200 15px;
+    }
+  
+    .checkcontainer {
+      display: block;
+      position: relative;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 17px;
+      -webkit-user-select: none; /* Chrome, Opera, Safari */
+      -moz-user-select: none; /* Firefox 2+ */
+      -ms-user-select: none; /* IE 10+ */
+      user-select: none; /* Standard syntax */
   }
-  input[type=text] label{
-    font: 200 15px;
+  
+  /* Hide the browser's default checkbox */
+  .checkcontainer input {
+      position: absolute;
+      opacity: 0;
+  cursor: pointer;}
+  
+  /* Create a custom checkbox */
+  .checkmark {
+      align-content: right;
+      justify-content: right;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
   }
+  
+  /* On mouse-over, add a grey background color */
+  .checkcontainer:hover input ~ .checkmark {
+      background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .checkcontainer input:checked ~ .checkmark {
+      background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+      content: "";
+      align-content: right;
+      justify-content: right;
+      display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .checkcontainer input:checked ~ .checkmark:after {
+      display: block;
+      align-content: right; 
+      margin: 0 auto; 
+  }
+  
+  
+  
   
   </style>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>WTG Flask</title>
-</head>
-
-<body>
-  <form action="{{url_for('inputHandler')}}" method="POST">
-    <p type="title">Enter a budget (format: 1,2,3 for $$$):</p>
-    <input type="text" name="budget"></input>
-    <p type="title">Enter a category:</p>
-    <input type="text" name="category"></input>
-    <p type="title">Hours until you plan to go:</p>
-    <input type="text" name="elapsed time"></input>
-    <p type="title">Rate the importance of distance from 1-10:</p>
-    <input type="text" name="distance score"></input>
-    <p type="title">Rate the importance of ratings from 1-10:</p>
-    <input type="text" name="rating score"></input>
-
-    <input type="submit" value="Submit" style="text-align:center; align-content: center; margin: 0 auto; display:block">
-  </form>
-  <hr>
-  <!-- <p>Best Restaurant: {{ restaurantName }}</p>
-  <p>Rating (rounded): {{ rating }}</p>
-  <p>Yelp URL: {{ yelpURL }}</p>
-  <p>Fakespot URL: {{ fakespotURL }}</p>
-  <p>Image URL: {{ imageURL }}</p>-->
-</body>
-<p type="title">Made by: <b>Nicholas Chu</b> and <b>Nikhil Kolluri</b></p>
-
-
-</html>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <title>WTG Flask</title>
+  </head>
+  
+  <body>
+    <form action="{{url_for('inputHandler')}}" method="POST" style="text-align:center; align-content: right; margin: 0 auto; display:block">
+      <p type="title">Select a budget:</p>
+        <label class="checkcontainer" style="align-content: right; margin: 0 auto; display:block">$
+          <input name="onedollar" type="checkbox" checked="1" unchecked="None" value="1" style="align-content: right; margin: 0 auto; display:block">
+          <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+        </label>
+        <label class="checkcontainer">$$
+          <input name="twodollar" type="checkbox" checked="2" unchecked="None" value="2">
+          <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+        </label>
+        <label  class="checkcontainer">$$$
+          <input name="threedollar" type="checkbox" checked="3" unchecked="None" value="3">
+          <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+        </label>
+        <label class="checkcontainer">$$$$
+          <input name="fourdollar" type="checkbox" checked="4" unchecked="None" value="4"> 
+          <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+        </label>
+  
+      <p type="title">Enter a category:</p>
+      <input type="text" name="category"></input>
+      <p type="title">Hours until you plan to go:</p>
+      <input type="text" name="elapsed time"></input>
+      <p type="title">Rate the importance of distance from 1-10:</p>
+      <input type="text" name="distance score"></input>
+      <p type="title">Rate the importance of ratings from 1-10:</p>
+      <input type="text" name="rating score"></input>
+  
+      <input type="submit" value="Submit" style="text-align:center; align-content: center; margin: 0 auto; display:block">
+    </form>
+    <hr>
+    <!-- <p>Best Restaurant: {{ restaurantName }}</p>
+    <p>Rating (rounded): {{ rating }}</p>
+    <p>Yelp URL: {{ yelpURL }}</p>
+    <p>Fakespot URL: {{ fakespotURL }}</p>
+    <p>Image URL: {{ imageURL }}</p>-->
+  </body>
+  <p type="title">Made by: <b>Nicholas Chu</b> and <b>Nikhil Kolluri</b></p>
+  
+  
+  </html>
