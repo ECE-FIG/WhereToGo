@@ -1,6 +1,8 @@
 # Where To Go, by Nikhil Kolluri and Nicholas Chu
 A web app that randomly selects a restaurant that fits the specifications of user-defined filters, including price range, food category, distance, and average ratings. Demo the app at http://www.idkwheretogo.com.
 
+#NOTE: Website currently uses location of "Bennu Coffee" in Austin as the starting point. We are implementing a feature to request the user's location.
+
 ### How to Install and Run ###
 First, make sure you have Docker installed on your computer. If you don't have Docker, you can go [here](https://docs.docker.com/install/#supported-platforms) to learn more about how to do that. (P.S. If you don't have a professional version of Windows or don't meet the requirements of Docker CE, you must download [Docker Toolbox](https://docs.docker.com/toolbox/overview) to install Docker.)
 
