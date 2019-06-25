@@ -1,4 +1,4 @@
-# Where to Go
+# Where to Go, by Nikhil Kolluri and Nicholas Chu
 A web app that randomly selects a restaurant that fits the specifications of user-defined filters, including price range, food category, distance, and average ratings. Demo the app at http://www.idkwheretogo.com.
 
 ### How to Install and Run ###
