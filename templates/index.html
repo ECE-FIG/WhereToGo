@@ -6,39 +6,36 @@
 </head>
 
 <body>
-  <form action="{{url_for('inputHandler')}}" method="POST"
-    style="text-align:center; align-content: right; margin: 0 auto; display:block">
-    <p type="title">Select a budget:</p>
-    <label class="checkcontainer" style="align-content: right; margin: 0 auto; display:block">
-      <p type="">$</p>
-      <input name="onedollar" type="checkbox" checked="1" unchecked="None" value="1"
-        style="align-content: right; margin: 0 auto; display:block">
-      <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+  <form action="{{url_for('inputHandler')}}" method="POST">
+    <label type="title">Select a budget:</label>
+    <label class="checkcontainer">
+      <input name="onedollar" type="checkbox" checked="1" unchecked="None" value="1">
+      <span class="checkmark" style=" margin: 0 auto; display:inline-block">$</span>
     </label>
     <label class="checkcontainer">
-      <p type="">$$</p>
       <input name="twodollar" type="checkbox" checked="2" unchecked="None" value="2">
-      <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+      <span class="checkmark" style="margin: 0 auto; display:inline-block">$$</span>
     </label>
     <label class="checkcontainer">
-      <p type="">$$$</p>
       <input name="threedollar" type="checkbox" checked="3" unchecked="None" value="3">
-      <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+      <span class="checkmark" style=" margin: 0 auto; display:inline-block">$$$</span>
     </label>
     <label class="checkcontainer">
-      <p type="">$$$$</p>
       <input name="fourdollar" type="checkbox" checked="4" unchecked="None" value="4">
-      <span class="checkmark" style="align-content: right; margin: 0 auto; display:block"></span>
+      <span class="checkmark" style="margin: 0 auto; display:inline-block">$$$$</span>
     </label>
-
-    <p type="title">Enter a category:</p>
-    <input type="text" name="category"></input>
-    <p type="title">Hours until you plan to go:</p>
-    <input type="text" name="elapsed time"></input>
-    <p type="title">Rate the importance of distance from 1-10:</p>
-    <input type="text" name="distance score"></input>
-    <p type="title">Rate the importance of ratings from 1-10:</p>
-    <input type="text" name="rating score"></input>
+    <br>
+    <label type="title">Enter a category:</label>
+    <input type="text" name="category" placeholder="asian"></input>
+    <br>
+    <label type="title">Hours until you plan to go:</label>
+    <input type="text" name="elapsed time" placeholder="2"></input>
+    <br>
+    <label type="title">Rate the importance of distance from 1-10:</label>
+    <input type="text" name="distance score" placeholder="8"></input>
+    <br>
+    <label type="title">Rate the importance of ratings from 1-10:</label>
+    <input type="text" name="rating score" placeholder="8"></input>
     <br><br>
     <input type="submit" value="Submit" style="text-align:center; align-content: center; margin: 0 auto; display:block">
   </form>
@@ -54,61 +51,40 @@
 </html>
 
 <style>
-  .container input:checked~.checkmark:after {
-    display: block;
-  }
-
-
-  .checkcontainer .checkmark:after {
-    left: 10px;
-    top: 6px;
-    width: 7px;
-    height: 12px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-  .checkcontainer input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  .checkcontainer:hover input~.checkmark {
-    background-color: #ccc;
-  }
-
   .checkcontainer input:checked~.checkmark {
-    background-color: #2196F3;
+    font-family: "Source Sans Pro", Helvetica, sans-serif, ;
+    /* font-size: 15px; */
+    font-weight: 700;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    /* font: color rgb(196,18,0); */
+    color: rgb(63, 168, 107);
   }
+
 
   .checkcontainer {
     align-content: right;
-    display: block;
+    display: inline-block;
     position: relative;
-
+    margin-right: 2%;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 2.5rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-family: "Source Sans Pro", Helvetica, sans-serif, ;
+    /* font-size: 15px; */
+    font-weight: 700;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    /* font: color rgb(196,18,0); */
+    color: rgb(139, 139, 139);
+    /* padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px; */
   }
 
-  .checkcontainer .checkmark:after {
-    left: 10px;
-    top: 6px;
-    width: 7px;
-    height: 12px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
+
 
   *,
   *:before,
@@ -121,60 +97,81 @@
     width: 33.33333%;
   }
 
-  div {
-    display: block;
-  }
+
 
   body {
-    background-image: url(https://images.pexels.com/photos/6747/food-dessert-sweet-color.jpg);
-
+    background-color: rgb(49, 49, 49);
   }
 
+
+
   p[type=title] {
-    text-align: center;
-    align-content: center;
-    color: white;
+    /* text-align: center; */
+    /* align-content: center; */
+    color: rgb(218, 218, 218);
     font-family: "Source Sans Pro", Helvetica, sans-serif;
     font-size: 2.25rem;
-    font-weight: 900;
-    text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+    font-weight: 700;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
+  ::placeholder {
+    color: rgb(139, 139, 139);
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
+  label[type=title] {
+    color: rgb(219, 219, 219);
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin-right: 1%;
+    margin-left: 3%;
   }
 
   input[type=text] {
     width: 25%;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    display: block;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
+    /* border: 1px solid #ccc; */
+    display: inline-block;
+    /* box-shadow: inset 0 1px 3px #ddd; */
+    border: none;
+    background-color: rgb(49, 49, 49);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding-left: 20px;
+    /* padding-left: 20px;
     padding-right: 20px;
     padding-top: 15px;
-    padding-bottom: 15px;
-    align-content: center;
-    text-align: center;
+    padding-bottom: 15px; */
+    text-align: left;
     -webkit-transition: width 0.6s ease-in-out;
     transition: width 0.6s ease-in-out;
+    color: rgb(179, 177, 255);
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
   }
 
+  /* 
   input[type=text]:focus {
     width: 45%;
-    background-color: #ffffcc;
-  }
+     background-color: #ffffcc; 
+  } */
 
-  input[type=text] label {
-    font: 200 15px;
-  }
+
 
   .checkcontainer {
     display: inli;
     position: relative;
 
     cursor: pointer;
-    font-size: 17px;
+    /* font-size: 17px; */
     -webkit-user-select: none;
     /* Chrome, Opera, Safari */
     -moz-user-select: none;
@@ -192,24 +189,11 @@
     cursor: pointer;
   }
 
-  /* Create a custom checkbox */
-  .checkmark {
-    align-content: right;
-    justify-content: right;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-  }
 
-  /* On mouse-over, add a grey background color */
-  .checkcontainer:hover input~.checkmark {
-    background-color: #ccc;
-  }
 
-  /* When the checkbox is checked, add a blue background */
-  .checkcontainer input:checked~.checkmark {
-    background-color: #2196F3;
-  }
+
+
+
 
   /* Create the checkmark/indicator (hidden when not checked) */
   .checkmark:after {
@@ -222,7 +206,6 @@
   /* Show the checkmark when checked */
   .checkcontainer input:checked~.checkmark:after {
     display: block;
-    align-content: right;
     margin: 0 auto;
   }
 </style>
