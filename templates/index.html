@@ -6,6 +6,7 @@
 </head>
 
 <body>
+
   <form action="{{url_for('inputHandler')}}" method="POST">
     <label type="title">Select a budget:</label>
     <label class="checkcontainer">
@@ -26,16 +27,20 @@
     </label>
     <br>
     <label type="title">Enter a category:</label>
-    <input type="text" name="category" placeholder="asian"></input>
+    <input type="text" name="category" placeholder="ex: asian"></input>
+    <br>
+    <label type="title">Enter location or get location:</label>
+    <input type="text" name="location" placeholder="ex: Austin, TX" id="locationField"></input> 
+    <button type="button" onClick="getLocation()">Click to get location</button>
     <br>
     <label type="title">Hours until you plan to go:</label>
-    <input type="text" name="elapsed time" placeholder="2"></input>
+    <input type="text" name="elapsed time" placeholder="ex: 2"></input>
     <br>
     <label type="title">Rate the importance of distance from 1-10:</label>
-    <input type="text" name="distance score" placeholder="8"></input>
+    <input type="text" name="distance score" placeholder="ex: 8"></input>
     <br>
     <label type="title">Rate the importance of ratings from 1-10:</label>
-    <input type="text" name="rating score" placeholder="8"></input>
+    <input type="text" name="rating score" placeholder="ex: 8"></input>
     <br><br>
     <input type="submit" value="Submit" style="text-align:center; align-content: center; margin: 0 auto; display:block">
   </form>
@@ -49,6 +54,28 @@
 </body>
 
 </html>
+
+<script>
+
+  function getLocation() {
+    var x = document.getElementById("locationField");
+    // alert("hi");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    var x = document.getElementById("locationField");
+
+    x.value = position.coords.latitude +
+      "," + position.coords.longitude;
+  }
+
+
+</script>
 
 <style>
   .checkcontainer input:checked~.checkmark {

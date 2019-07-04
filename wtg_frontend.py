@@ -38,6 +38,7 @@ def inputHandler():
     openDuration = int(request.form['elapsed time'] or 0)
     distanceImportance = int(request.form['distance score'] or 0)
     ratingImportance = int(request.form['rating score'] or 0)
+    location = str(request.form['location'] or "Austin, TX")
     # initialize parameters
     restaurantName = None
     rating = None
@@ -47,7 +48,7 @@ def inputHandler():
     nameList = ""
 
     optionsList = runFrontEndExample(
-        budget, term, openDuration, distanceImportance, ratingImportance)
+        budget, term, openDuration, distanceImportance, ratingImportance, location)
     maxIndices = len(optionsList)
 
     if maxIndices != 0:

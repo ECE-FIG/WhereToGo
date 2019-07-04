@@ -10,10 +10,10 @@ LIMIT = 50
 # budget string is in format "1,2,3" for 1-3 dollar signs
 
 
-def getAffordableBusinesses(sortType: str, budget: str, term: str, openDuration: int) -> list:
+def getAffordableBusinesses(sortType: str, budget: str, term: str, openDuration: int, location:str) -> list:
  #   file = open("./output.txt", "w", encoding='utf-8')
     businesses = []
-    location = "2001 E Martin Luther King Jr Blvd, Austin, TX 78702"
+   # location = "29.720,-95.34"
     # location = "Austin, TX"
     offset = 0
 
@@ -47,7 +47,7 @@ def getAffordableBusinesses(sortType: str, budget: str, term: str, openDuration:
  #   file.close
 
 
-def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImportance: int, ratingImportance: int) -> list:
+def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImportance: int, ratingImportance: int, location:str) -> list:
     # budget = input("Enter a budget (format: 1,2,3 for $$$): ")
     # term = input("Enter a category: ")
     # openDuration = int(input("Hours until you plan to go: "))
@@ -62,10 +62,10 @@ def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImport
     # ratingImportance = 5
 
     distanceList = getAffordableBusinesses(
-        'distance', budget, term, openDuration)
+        'distance', budget, term, openDuration, location)
     # reviewCountList = getAffordableBusinesses('review_count', budget, term, openDuration)
     ratingList = getAffordableBusinesses(
-        'rating', budget, term, openDuration)
+        'rating', budget, term, openDuration, location)
     # bestMatchList = getAffordableBusinesses(
     #    'best_match', budget, term, openDuration)
     stillValid = True
@@ -94,7 +94,6 @@ def runFrontEndExample(budget: str, term: str, openDuration: int, distanceImport
         print("Looking through potential restaurant ideas..." + "\n")
         print(optionsList)
         return optionsList
-
 
 # print(runFrontEndExample())
 
