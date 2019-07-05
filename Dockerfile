@@ -9,4 +9,4 @@ RUN rm /etc/nginx/sites-enabled/default
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 EXPOSE 80 443
-CMD ["sh", "-c", "gunicorn -b unix:/tmp/wtg.sock wsgi:app --daemon && service nginx start"]
+CMD ["sh", "-c", "gunicorn -b unix:/tmp/wtg.sock wsgi:app --daemon && nginx"]
