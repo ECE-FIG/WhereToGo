@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
   <form action="{{url_for('inputHandler')}}" method="POST" autocomplete="off">
     <label type="title">Select a budget:</label>
     <label class="checkcontainer">
@@ -30,7 +29,7 @@
     <input type="text" name="category" placeholder="ex: asian"></input>
     <br>
     <label type="title">Enter location or get location:</label>
-    <input type="text" name="location" placeholder="ex: Austin, TX" id="locationField"></input> 
+    <input type="text" name="location" placeholder="ex: Austin, TX" id="locationField"></input>
     <button type="button" onClick="getLocation()">Click to get location</button>
     <br>
     <label type="title">Hours until you plan to go:</label>
@@ -45,36 +44,27 @@
     <input type="submit" value="Submit" style="text-align:center; align-content: center; margin: 0 auto; display:block">
   </form>
   <hr>
-  <!-- <p>Best Restaurant: {{ restaurantName }}</p>
-    <p>Rating (rounded): {{ rating }}</p>
-    <p>Yelp URL: {{ yelpURL }}</p>
-    <p>Fakespot URL: {{ fakespotURL }}</p>
-    <p>Image URL: {{ imageURL }}</p>-->
-  <label type="title">Made by: <b>Nicholas Chu</b> and <b>Nikhil Kolluri</b></label>
+  <label type="title">Made by: Nicholas Chu and Nikhil Kolluri</label>
 </body>
 
 </html>
 
 <script>
-
   function getLocation() {
-    var x = document.getElementById("locationField");
-    // alert("hi");
+    let el = document.getElementById("locationField");
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
+      el.innerHTML = "Geolocation is not supported by this browser.";
     }
   }
 
   function showPosition(position) {
-    var x = document.getElementById("locationField");
+    let el = document.getElementById("locationField");
 
-    x.value = position.coords.latitude +
-      "," + position.coords.longitude;
+    el.value = position.coords.latitude + "," + position.coords.longitude;
   }
-
-
 </script>
 
 <style>
@@ -111,26 +101,19 @@
     padding-bottom: 15px; */
   }
 
-
-
   *,
   *:before,
   *:after {
     box-sizing: inherit;
   }
 
-
   .budgetInput {
     width: 33.33333%;
   }
 
-
-
   body {
     background-color: rgb(49, 49, 49);
   }
-
-
 
   p[type=title] {
     /* text-align: center; */
@@ -182,7 +165,6 @@
     font-size: 2.25rem;
     font-weight: 700;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
   }
 
   /* 
@@ -190,8 +172,6 @@
     width: 45%;
      background-color: #ffffcc; 
   } */
-
-
 
   .checkcontainer {
     display: inli;
@@ -215,12 +195,6 @@
     opacity: 0;
     cursor: pointer;
   }
-
-
-
-
-
-
 
   /* Create the checkmark/indicator (hidden when not checked) */
   .checkmark:after {

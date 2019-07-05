@@ -1,12 +1,11 @@
 FROM ubuntu:latest
-RUN apt-get update -y
-RUN apt-get install -y python3 python3-pip
-COPY . /app
-WORKDIR /app
+COPY ./nginx /etc/nginx
+COPY . /wtg
+WORKDIR /wtg
+RUN apt-get update && apt-get install -y python3 python3-pip nginx
 RUN pip3 install -r requirements.txt
-ENV FLASK_APP wtg_frontend.py
-ENV FLASK_ENV development
+RUN ln -s /etc/nginx/sites-available/wtg /etc/nginx/sites-enabled
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
-EXPOSE 5000
-CMD flask run --host=0.0.0.0
+EXPOSE 80 443
+CMD ["sh", "-c", "gunicorn --bind unix:wtg.sock wsgi:app"]
