@@ -67,8 +67,8 @@ def getMatches(location: str, budget: str, term: str, openDuration: int, distanc
     businessCount = len(distanceList)
 
     for i in range(0, businessCount, 10):
-        maxDistance = businessCount - (2 ** distanceImportance + i)
-        maxRating = businessCount - (2 ** ratingImportance + i)
+        maxDistance = int((10 - distanceImportance) * 100 * i)
+        maxRating = int((10 - ratingImportance) * 100 * i)
         bestDistanceList = distanceList[0:maxDistance]
         bestRatingList = ratingList[0:maxRating]
         optionsList = [a for a in bestDistanceList if a in bestRatingList]
