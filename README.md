@@ -6,7 +6,7 @@ First, make sure you have Docker installed on your computer. If you don't have D
 
 Once you have Docker installed, open up a terminal in the project root directory and run `docker build -t wtg .`
 
-After the build finishes, run `docker run -d -p 5000:5000 wtg` to start the flask server.
+After the build finishes, run `docker run -d -p 5000:5000 wtg` to start the gunicorn server.
 
 Now, run `docker-machine ip` to get the IP address of where the server is hosted. Visit this address in a web browser and append `:5000` to it to access the site (e.g. 192.168.99.100:5000).
 
