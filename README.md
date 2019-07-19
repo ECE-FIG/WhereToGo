@@ -1,5 +1,5 @@
 # Where To Go, by Nikhil Kolluri and Nicholas Chu
-A web app that randomly selects a restaurant which fits the specifications of user-defined filters, including price range, food category, distance, and average ratings. Demo the app at http://www.idkwheretogo.com.
+A web app that randomly selects a restaurant which fits the specifications of user-defined filters, including price range, food category, distance, and average ratings. Demo the app at https://www.idkwheretogo.com.
 
 ### How to Run Locally with Flask
 Simply run `wtg_frontend.py`, and the Flask development server will start up.
