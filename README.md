@@ -7,11 +7,11 @@ Simply run `wtg_frontend.py` with Python, and the Flask development server will 
 ### How to Run Locally through Docker
 First, make sure you have Docker installed on your computer. If you don't have Docker, you can go [here](https://docs.docker.com/install/#supported-platforms) to learn more about how to do that. (P.S. If you don't have a professional version of Windows or don't meet the requirements of Docker CE, you must download [Docker Toolbox](https://docs.docker.com/toolbox/overview) to install Docker.)
 
-Once you have Docker installed, open up a terminal in the project root directory and run `docker build -t wtg .`
+Once you have Docker installed, open up a terminal in the project root directory and run `docker build -t wtg .` to build the Docker image.
 
-After the build finishes, run `docker run -d -p 5000:5000 wtg` to start the gunicorn server.
+After the build finishes, run `docker run -d -p 80:5000 wtg` to start the gunicorn production server.
 
-Now, run `docker-machine ip` to get the IP address of where the server is hosted. Visit this address in a web browser and append `:5000` to it to access the site (e.g. 192.168.99.100:5000).
+Now, run `docker-machine ip` to get the IP address of where the server is hosted. Visit this address in a web browser to access the site (e.g. 192.168.99.100).
 
 Congratulations, you have successfully hosted and ran the web app through Docker!
 
