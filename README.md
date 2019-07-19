@@ -1,7 +1,10 @@
 # Where To Go, by Nikhil Kolluri and Nicholas Chu
 A web app that randomly selects a restaurant which fits the specifications of user-defined filters, including price range, food category, distance, and average ratings. Demo the app at http://www.idkwheretogo.com.
 
-### How to Install and Run Locally
+### How to Run Locally with Flask
+Simply run `wtg_frontend.py` with Python, and the Flask development server will start up.
+
+### How to Run Locally through Docker
 First, make sure you have Docker installed on your computer. If you don't have Docker, you can go [here](https://docs.docker.com/install/#supported-platforms) to learn more about how to do that. (P.S. If you don't have a professional version of Windows or don't meet the requirements of Docker CE, you must download [Docker Toolbox](https://docs.docker.com/toolbox/overview) to install Docker.)
 
 Once you have Docker installed, open up a terminal in the project root directory and run `docker build -t wtg .`
